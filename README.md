@@ -2,7 +2,8 @@
 
 idea from butterknife but this isnot working with Java CodeGeneration
 
-view actions:
+view actions
   OnClick, OnTextChange, OnSeekChange, OnItemClick
-upcomming actions:
+
+upcomming actions
   OnLongClick, OnTouch, OnItemSelect, OnCheckChange
