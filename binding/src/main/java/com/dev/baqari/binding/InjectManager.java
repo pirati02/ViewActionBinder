@@ -1,7 +1,9 @@
 package com.dev.baqari.binding;
 
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SeekBar;
@@ -24,12 +26,20 @@ public class InjectManager {
         for (View item : instances) {
             if (item instanceof EditText)
                 ((EditText)item).addTextChangedListener(null);
-            if (item instanceof Button)
-                item.setOnClickListener(null);
             if (item instanceof SeekBar)
                 ((SeekBar)item).setOnSeekBarChangeListener(null);
-            if (item instanceof ListView)
-                ((ListView)item).setOnItemClickListener(null);
+            if (item instanceof AbsListView)
+                ((AbsListView)item).setOnItemClickListener(null);
+            if (item instanceof CompoundButton)
+                ((CompoundButton)item).setOnCheckedChangeListener(null);
+            if (item instanceof AbsListView)
+                ((AbsListView)item).setOnItemSelectedListener(null);
+            if (item instanceof CompoundButton)
+                ((CompoundButton)item).setOnCheckedChangeListener(null);
+
+            item.setOnLongClickListener(null);
+            item.setOnClickListener(null);
+            item.setOnTouchListener(null);
         }
     }
 }

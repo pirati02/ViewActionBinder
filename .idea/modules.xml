@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Inject.iml" filepath="$PROJECT_DIR$/Inject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ViewActionBinder.iml" filepath="$PROJECT_DIR$/ViewActionBinder.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/binding/binding.iml" filepath="$PROJECT_DIR$/binding/binding.iml" />
     </modules>
