@@ -32,10 +32,10 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-public class TypeApplier {
+class TypeApplier {
 
     @Nullable
-    public static View applyOnCheckChange(final Method method, OnCheckChange onCheckChange, final Context context) {
+    static View applyOnCheckChange(final Method method, OnCheckChange onCheckChange, final Context context) {
         if (onCheckChange.id() > 0) {
             final View view = ((Activity) context).findViewById(onCheckChange.id());
             if (view instanceof CompoundButton) {
@@ -67,7 +67,7 @@ public class TypeApplier {
     }
 
     @Nullable
-    public static View applyOnClick(final Method method, OnClick onClick, final Context context) {
+    static View applyOnClick(final Method method, OnClick onClick, final Context context) {
         if (onClick.id() > 0) {
             final View view = ((Activity) context).findViewById(onClick.id());
             view.setOnClickListener(new View.OnClickListener() {
@@ -94,7 +94,7 @@ public class TypeApplier {
     }
 
     @Nullable
-    public static View applyTextChange(final Method method, OnTextChange onTextChange, final Context context) {
+    static View applyTextChange(final Method method, OnTextChange onTextChange, final Context context) {
         if (onTextChange.id() > 0) {
             final View view = ((Activity) context).findViewById(onTextChange.id());
             if (view instanceof EditText) {
@@ -134,7 +134,7 @@ public class TypeApplier {
     }
 
     @Nullable
-    public static View applySeekChange(final Method method, OnSeekChange onSeekChange, final Context context) {
+    static View applySeekChange(final Method method, OnSeekChange onSeekChange, final Context context) {
         if (onSeekChange.id() > 0) {
             final View view = ((Activity) context).findViewById(onSeekChange.id());
             if (view instanceof SeekBar) {
@@ -175,7 +175,7 @@ public class TypeApplier {
     }
 
     @Nullable
-    public static View applyOnItemClick(final Method method, OnItemClick onItemClick, final Context context) {
+    static View applyOnItemClick(final Method method, OnItemClick onItemClick, final Context context) {
         if (onItemClick.id() > 0) {
             final View view = ((Activity) context).findViewById(onItemClick.id());
             if (view instanceof AbsListView) {
@@ -207,7 +207,7 @@ public class TypeApplier {
     }
 
     @Nullable
-    public static View applyOnItemSelect(final Method method, OnItemSelect onItemSelect, final Context context) {
+    static View applyOnItemSelect(final Method method, OnItemSelect onItemSelect, final Context context) {
         if (onItemSelect.id() > 0) {
             final View view = ((Activity) context).findViewById(onItemSelect.id());
             if (view instanceof AbsListView) {
@@ -242,7 +242,7 @@ public class TypeApplier {
     }
 
     @Nullable
-    public static View applyOnTouch(final Method method, OnTouch onTouch, final Context context) {
+    static View applyOnTouch(final Method method, OnTouch onTouch, final Context context) {
         if (onTouch.id() > 0) {
             final View view = ((Activity) context).findViewById(onTouch.id());
             view.setOnTouchListener(new View.OnTouchListener() {
@@ -272,7 +272,7 @@ public class TypeApplier {
     }
 
     @Nullable
-    public static View applyOnLongClick(final Method method, OnLongClick onLongClick, final Context context) {
+    static View applyOnLongClick(final Method method, OnLongClick onLongClick, final Context context) {
         if (onLongClick.id() > 0) {
             final View view = ((Activity) context).findViewById(onLongClick.id());
             view.setOnLongClickListener(new View.OnLongClickListener() {
@@ -300,7 +300,7 @@ public class TypeApplier {
     }
 
     @Nullable
-    public static View applyOnScroll(final Method method, OnScroll onScroll, final Context context) {
+    static View applyOnScroll(final Method method, OnScroll onScroll, final Context context) {
         if (onScroll.id() > 0) {
             final View view = ((Activity) context).findViewById(onScroll.id());
             final GestureDetector gestureDetector = new GestureDetector(context, new GestureDetector.OnGestureListener() {
