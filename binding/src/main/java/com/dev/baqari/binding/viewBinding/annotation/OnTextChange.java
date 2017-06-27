@@ -1,4 +1,4 @@
-package com.dev.baqari.binding.annotation;
+package com.dev.baqari.binding.viewBinding.annotation;
 
 
 import java.lang.annotation.ElementType;

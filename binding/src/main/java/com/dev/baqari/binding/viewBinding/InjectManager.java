@@ -1,5 +1,6 @@
-package com.dev.baqari.binding;
+package com.dev.baqari.binding.viewBinding;
 
+import android.content.Context;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.Button;

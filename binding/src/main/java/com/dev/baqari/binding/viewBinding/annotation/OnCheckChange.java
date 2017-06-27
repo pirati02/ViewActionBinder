@@ -1,5 +1,4 @@
-package com.dev.baqari.binding.annotation;
-
+package com.dev.baqari.binding.viewBinding.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -8,6 +7,6 @@ import java.lang.annotation.Target;
 
 @Target(value = {ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface OnTouch {
+public @interface OnCheckChange {
     int id() default 0;
 }
