@@ -14,11 +14,11 @@ import java.util.List;
 public class InjectManager {
     private List<View> instances;
 
-    public InjectManager() {
+    InjectManager() {
         instances = new ArrayList<>();
     }
 
-    public void inject(View view) {
+    void inject(View view) {
         instances.add(view);
     }
 
