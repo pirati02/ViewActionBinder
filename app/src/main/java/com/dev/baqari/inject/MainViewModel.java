@@ -1,5 +1,6 @@
 package com.dev.baqari.inject;
 
+import android.content.Intent;
 import android.widget.Toast;
 
 import com.dev.baqari.binding.contextBinding.ActivityViewModel;
@@ -15,7 +16,7 @@ public class MainViewModel extends ActivityViewModel<MainActivity> {
 
     @OnClick(id = R.id.button)
     public void onClick(){
-        Toast.makeText(activity, "Clicked", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(activity, AnotherActivity.class);
+        activity.startActivity(intent);
     }
-
 }
