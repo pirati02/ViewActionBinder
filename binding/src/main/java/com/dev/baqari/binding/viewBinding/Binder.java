@@ -22,13 +22,13 @@ public class Binder {
 
     private InjectManager injectManager = new InjectManager();
 
-    public static Binder with(Context context) {
+    public static Binder instance(Context context) {
         MethodTypeApply.context = context;
         FieldTypeApply.context = context;
         return new Binder();
     }
 
-    public static Binder without() {
+    public static Binder instance() {
         return new Binder();
     }
 
@@ -36,49 +36,12 @@ public class Binder {
         if (!injectManager.isApplied()) {
             if (MethodTypeApply.context == null)
                 try {
-                    throw new Exception("You forgot to invoke the method with(Context context)");
+                    throw new Exception("You forgot to invoke the method instance(Context context)");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             else {
-                View view = null;
-                for (final Method method : object.getClass().getMethods()) {
-                    if (method.isAnnotationPresent(OnClick.class)) {
-                        view = MethodTypeApply.applyOnClick(method, method.getAnnotation(OnClick.class), object);
-                    }
-                    if (method.isAnnotationPresent(OnTextChange.class)) {
-                        view = MethodTypeApply.applyTextChange(method, method.getAnnotation(OnTextChange.class), object);
-                    }
-                    if (method.isAnnotationPresent(OnSeekChange.class)) {
-                        view = MethodTypeApply.applySeekChange(method, method.getAnnotation(OnSeekChange.class), object);
-                    }
-                    if (method.isAnnotationPresent(OnItemClick.class)) {
-                        view = MethodTypeApply.applyOnItemClick(method, method.getAnnotation(OnItemClick.class), object);
-                    }
-                    if (method.isAnnotationPresent(OnCheckChange.class)) {
-                        view = MethodTypeApply.applyOnCheckChange(method, method.getAnnotation(OnCheckChange.class), object);
-                    }
-                    if (method.isAnnotationPresent(OnItemSelect.class)) {
-                        view = MethodTypeApply.applyOnItemSelect(method, method.getAnnotation(OnItemSelect.class), object);
-                    }
-                    if (method.isAnnotationPresent(OnTouch.class)) {
-                        view = MethodTypeApply.applyOnTouch(method, method.getAnnotation(OnTouch.class), object);
-                    }
-                    if (method.isAnnotationPresent(OnLongClick.class)) {
-                        view = MethodTypeApply.applyOnLongClick(method, method.getAnnotation(OnLongClick.class), object);
-                    }
-                    if (view != null)
-                        injectManager.inject(view);
-                }
-                for (Field field : object.getClass().getFields()) {
-                    if (field.isAnnotationPresent(Preference.class)) {
-                        FieldTypeApply.apply(object, field, field.getAnnotation(Preference.class));
-                    }
-                    if (field.isAnnotationPresent(File.class)) {
-                        FieldTypeApply.apply(object, field, field.getAnnotation(File.class));
-                    }
-                }
-                injectManager.setApplied(true);
+                binding(object);
             }
         }
     }
@@ -87,44 +50,48 @@ public class Binder {
         if (!injectManager.isApplied()) {
             MethodTypeApply.context = object;
             FieldTypeApply.context = object;
-            View view = null;
-            for (final Method method : object.getClass().getMethods()) {
-                if (method.isAnnotationPresent(OnClick.class)) {
-                    view = MethodTypeApply.applyOnClick(method, method.getAnnotation(OnClick.class), object);
-                }
-                if (method.isAnnotationPresent(OnTextChange.class)) {
-                    view = MethodTypeApply.applyTextChange(method, method.getAnnotation(OnTextChange.class), object);
-                }
-                if (method.isAnnotationPresent(OnSeekChange.class)) {
-                    view = MethodTypeApply.applySeekChange(method, method.getAnnotation(OnSeekChange.class), object);
-                }
-                if (method.isAnnotationPresent(OnItemClick.class)) {
-                    view = MethodTypeApply.applyOnItemClick(method, method.getAnnotation(OnItemClick.class), object);
-                }
-                if (method.isAnnotationPresent(OnCheckChange.class)) {
-                    view = MethodTypeApply.applyOnCheckChange(method, method.getAnnotation(OnCheckChange.class), object);
-                }
-                if (method.isAnnotationPresent(OnItemSelect.class)) {
-                    view = MethodTypeApply.applyOnItemSelect(method, method.getAnnotation(OnItemSelect.class), object);
-                }
-                if (method.isAnnotationPresent(OnTouch.class)) {
-                    view = MethodTypeApply.applyOnTouch(method, method.getAnnotation(OnTouch.class), object);
-                }
-                if (method.isAnnotationPresent(OnLongClick.class)) {
-                    view = MethodTypeApply.applyOnLongClick(method, method.getAnnotation(OnLongClick.class), object);
-                }
-                if (view != null)
-                    injectManager.inject(view);
-            }
-            for (Field field : object.getClass().getDeclaredFields()) {
-                if (field.isAnnotationPresent(Preference.class)) {
-                    FieldTypeApply.apply(object, field, field.getAnnotation(Preference.class));
-                }
-                if (field.isAnnotationPresent(File.class)) {
-                    FieldTypeApply.apply(object, field, field.getAnnotation(File.class));
-                }
-            }
-            injectManager.setApplied(true);
+            binding(object);
         }
+    }
+
+    private void binding(Object object){
+        View view = null;
+        for (final Method method : object.getClass().getMethods()) {
+            if (method.isAnnotationPresent(OnClick.class)) {
+                view = MethodTypeApply.applyOnClick(method, method.getAnnotation(OnClick.class), object);
+            }
+            if (method.isAnnotationPresent(OnTextChange.class)) {
+                view = MethodTypeApply.applyTextChange(method, method.getAnnotation(OnTextChange.class), object);
+            }
+            if (method.isAnnotationPresent(OnSeekChange.class)) {
+                view = MethodTypeApply.applySeekChange(method, method.getAnnotation(OnSeekChange.class), object);
+            }
+            if (method.isAnnotationPresent(OnItemClick.class)) {
+                view = MethodTypeApply.applyOnItemClick(method, method.getAnnotation(OnItemClick.class), object);
+            }
+            if (method.isAnnotationPresent(OnCheckChange.class)) {
+                view = MethodTypeApply.applyOnCheckChange(method, method.getAnnotation(OnCheckChange.class), object);
+            }
+            if (method.isAnnotationPresent(OnItemSelect.class)) {
+                view = MethodTypeApply.applyOnItemSelect(method, method.getAnnotation(OnItemSelect.class), object);
+            }
+            if (method.isAnnotationPresent(OnTouch.class)) {
+                view = MethodTypeApply.applyOnTouch(method, method.getAnnotation(OnTouch.class), object);
+            }
+            if (method.isAnnotationPresent(OnLongClick.class)) {
+                view = MethodTypeApply.applyOnLongClick(method, method.getAnnotation(OnLongClick.class), object);
+            }
+            if (view != null)
+                injectManager.inject(view);
+        }
+        for (Field field : object.getClass().getDeclaredFields()) {
+            if (field.isAnnotationPresent(Preference.class)) {
+                FieldTypeApply.apply(object, field, field.getAnnotation(Preference.class));
+            }
+            if (field.isAnnotationPresent(File.class)) {
+                FieldTypeApply.apply(object, field, field.getAnnotation(File.class));
+            }
+        }
+        injectManager.setApplied(true);
     }
 }

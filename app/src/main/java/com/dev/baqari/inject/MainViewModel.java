@@ -10,7 +10,7 @@ import com.dev.baqari.binding.viewBinding.annotation.actions.OnClick;
 public class MainViewModel extends ActivityViewModel<MainActivity> {
 
     public void bind(){
-        Binder.with(activity).bind(this);
+        Binder.instance(activity).bind(this);
     }
 
     @OnClick(id = R.id.button)

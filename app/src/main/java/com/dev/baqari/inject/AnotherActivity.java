@@ -23,7 +23,7 @@ public class AnotherActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_another);
-        Binder.without().bind(this);
+        Binder.instance().bind(this);
     }
 
     @OnClick(id = R.id.button2)
