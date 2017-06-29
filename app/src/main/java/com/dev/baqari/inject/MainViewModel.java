@@ -1,11 +1,10 @@
 package com.dev.baqari.inject;
 
 import android.content.Intent;
-import android.widget.Toast;
 
 import com.dev.baqari.binding.contextBinding.ActivityViewModel;
 import com.dev.baqari.binding.viewBinding.Binder;
-import com.dev.baqari.binding.viewBinding.annotation.OnClick;
+import com.dev.baqari.binding.viewBinding.annotation.actions.OnClick;
 
 
 public class MainViewModel extends ActivityViewModel<MainActivity> {

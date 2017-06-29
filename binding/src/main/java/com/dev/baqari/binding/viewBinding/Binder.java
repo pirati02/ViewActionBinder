@@ -1,22 +1,20 @@
 package com.dev.baqari.binding.viewBinding;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.view.View;
 
 import com.dev.baqari.binding.contextBinding.ActivityViewModel;
-import com.dev.baqari.binding.storageBinding.File;
-import com.dev.baqari.binding.storageBinding.Preference;
-import com.dev.baqari.binding.viewBinding.annotation.OnCheckChange;
-import com.dev.baqari.binding.viewBinding.annotation.OnClick;
-import com.dev.baqari.binding.viewBinding.annotation.OnItemClick;
-import com.dev.baqari.binding.viewBinding.annotation.OnItemSelect;
-import com.dev.baqari.binding.viewBinding.annotation.OnLongClick;
-import com.dev.baqari.binding.viewBinding.annotation.OnSeekChange;
-import com.dev.baqari.binding.viewBinding.annotation.OnTextChange;
-import com.dev.baqari.binding.viewBinding.annotation.OnTouch;
+import com.dev.baqari.binding.viewBinding.annotation.storage.File;
+import com.dev.baqari.binding.viewBinding.annotation.storage.Preference;
+import com.dev.baqari.binding.viewBinding.annotation.actions.OnCheckChange;
+import com.dev.baqari.binding.viewBinding.annotation.actions.OnClick;
+import com.dev.baqari.binding.viewBinding.annotation.actions.OnItemClick;
+import com.dev.baqari.binding.viewBinding.annotation.actions.OnItemSelect;
+import com.dev.baqari.binding.viewBinding.annotation.actions.OnLongClick;
+import com.dev.baqari.binding.viewBinding.annotation.actions.OnSeekChange;
+import com.dev.baqari.binding.viewBinding.annotation.actions.OnTextChange;
+import com.dev.baqari.binding.viewBinding.annotation.actions.OnTouch;
 
-import java.lang.ref.PhantomReference;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 

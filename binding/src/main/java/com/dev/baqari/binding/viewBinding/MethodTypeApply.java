@@ -14,14 +14,14 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.SeekBar;
 
-import com.dev.baqari.binding.viewBinding.annotation.OnCheckChange;
-import com.dev.baqari.binding.viewBinding.annotation.OnClick;
-import com.dev.baqari.binding.viewBinding.annotation.OnItemClick;
-import com.dev.baqari.binding.viewBinding.annotation.OnItemSelect;
-import com.dev.baqari.binding.viewBinding.annotation.OnLongClick;
-import com.dev.baqari.binding.viewBinding.annotation.OnSeekChange;
-import com.dev.baqari.binding.viewBinding.annotation.OnTextChange;
-import com.dev.baqari.binding.viewBinding.annotation.OnTouch;
+import com.dev.baqari.binding.viewBinding.annotation.actions.OnCheckChange;
+import com.dev.baqari.binding.viewBinding.annotation.actions.OnClick;
+import com.dev.baqari.binding.viewBinding.annotation.actions.OnItemClick;
+import com.dev.baqari.binding.viewBinding.annotation.actions.OnItemSelect;
+import com.dev.baqari.binding.viewBinding.annotation.actions.OnLongClick;
+import com.dev.baqari.binding.viewBinding.annotation.actions.OnSeekChange;
+import com.dev.baqari.binding.viewBinding.annotation.actions.OnTextChange;
+import com.dev.baqari.binding.viewBinding.annotation.actions.OnTouch;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

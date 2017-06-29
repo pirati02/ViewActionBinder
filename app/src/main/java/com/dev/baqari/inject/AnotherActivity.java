@@ -5,11 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.dev.baqari.binding.storageBinding.File;
-import com.dev.baqari.binding.storageBinding.Preference;
-import com.dev.baqari.binding.storageBinding.Storage;
+import com.dev.baqari.binding.viewBinding.annotation.storage.File;
+import com.dev.baqari.binding.viewBinding.annotation.storage.Preference;
+import com.dev.baqari.binding.viewBinding.annotation.storage.Storage;
 import com.dev.baqari.binding.viewBinding.Binder;
-import com.dev.baqari.binding.viewBinding.annotation.OnClick;
+import com.dev.baqari.binding.viewBinding.annotation.actions.OnClick;
 
 public class AnotherActivity extends AppCompatActivity {
 
