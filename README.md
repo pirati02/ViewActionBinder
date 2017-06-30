@@ -65,6 +65,16 @@ public class AnotherActivity extends AppCompatActivity
         setContentView(R.layout.activity_another);
         Binder.instance().bind(this);
     }
+
+# 3 inject receiver method
+for example
+> public class AnotherActivity extends AppCompatActivity {
+   
+    @Receiver(actions = {"android.net.wifi.WIFI_STATE_CHANGED","android.net.wifi.STATE_CHANGE"})
+    public void received(Intent data){
+        Toast.makeText(this, "test", Toast.LENGTH_SHORT).show();
+    }
+
 # try to avoid leaks
 for example: 
 > public class AnotherActivity extends AppCompatActivity {
