@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.dev.baqari.binding.viewBinding.InjectManager;
 import com.dev.baqari.binding.viewBinding.annotation.storage.File;
 import com.dev.baqari.binding.viewBinding.annotation.storage.Preference;
 import com.dev.baqari.binding.viewBinding.annotation.storage.Storage;
@@ -19,15 +20,22 @@ public class AnotherActivity extends AppCompatActivity {
     @File(fileName = "lazy.pdf", storage = Storage.INTERNAL)
     java.io.File cv;
 
+    InjectManager manager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_another);
-        Binder.without().bind(this);
+        manager = Binder.without().bind(this);
     }
 
     @OnClick(id = R.id.button2)
     public void onClick(){
         Toast.makeText(this, "Test", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        manager.reject();
     }
 }

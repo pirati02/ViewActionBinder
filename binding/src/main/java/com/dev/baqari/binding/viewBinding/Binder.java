@@ -32,7 +32,7 @@ public class Binder {
         return new Binder();
     }
 
-    public void bind(ActivityViewModel object) {
+    public InjectManager bind(ActivityViewModel object) {
         if (!injectManager.isApplied()) {
             if (MethodTypeApply.context == null)
                 try {
@@ -81,9 +81,10 @@ public class Binder {
                 injectManager.setApplied(true);
             }
         }
+        return injectManager;
     }
 
-    public void bind(Context object) {
+    public InjectManager bind(Context object) {
         if (!injectManager.isApplied()) {
             MethodTypeApply.context = object;
             FieldTypeApply.context = object;
@@ -126,5 +127,6 @@ public class Binder {
             }
             injectManager.setApplied(true);
         }
+        return injectManager;
     }
 }

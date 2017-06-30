@@ -13,4 +13,10 @@ public class MainActivity extends ViewModelActivity<MainViewModel> {
         setContentView(R.layout.activity_main);
         viewModel.bind();
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        viewModel.unBind();
+    }
 }
