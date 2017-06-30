@@ -13,7 +13,7 @@ public class MainViewModel extends ActivityViewModel<MainActivity> {
     private InjectManager manager;
 
     public void bind(){
-        manager = Binder.with(activity).bind(this);
+        manager = Binder.instance(activity).bind(this);
     }
 
     @OnClick(id = R.id.button)
