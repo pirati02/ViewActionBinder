@@ -67,7 +67,8 @@ public class AnotherActivity extends AppCompatActivity
     }
 # try to avoid leaks
 for example: 
-public class AnotherActivity extends AppCompatActivity
+> public class AnotherActivity extends AppCompatActivity {
+
     @Preference(forName = "default")
     SharedPreferences preferences;
 
