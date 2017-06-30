@@ -75,7 +75,7 @@ for example
         Toast.makeText(this, "test", Toast.LENGTH_SHORT).show();
     }
 
-# try to avoid leaks
+# try to avoid leaks with injectmanager reject!
 for example: 
 > public class AnotherActivity extends AppCompatActivity {
 
