@@ -65,5 +65,27 @@ public class AnotherActivity extends AppCompatActivity
         setContentView(R.layout.activity_another);
         Binder.instance().bind(this);
     }
+# try to avoid leaks
+for example: 
+public class AnotherActivity extends AppCompatActivity
+    @Preference(forName = "default")
+    SharedPreferences preferences;
 
+    @File(fileName = "lazy.pdf", storage = Storage.INTERNAL)
+    java.io.File cv;
+    
+    InjectManager manager;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_another);
+        manager = Binder.instance().bind(this);
+    }
+    
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        manager.reject();
+    }
+ 
 https://github.com/pirati02/ViewActionBinder/blob/master/app/src/main/java/com/dev/baqari/inject/MainViewModel.java
