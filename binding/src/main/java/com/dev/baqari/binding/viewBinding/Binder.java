@@ -4,8 +4,6 @@ import android.content.Context;
 import android.view.View;
 
 import com.dev.baqari.binding.contextBinding.ActivityViewModel;
-import com.dev.baqari.binding.viewBinding.annotation.storage.File;
-import com.dev.baqari.binding.viewBinding.annotation.storage.Preference;
 import com.dev.baqari.binding.viewBinding.annotation.actions.OnCheckChange;
 import com.dev.baqari.binding.viewBinding.annotation.actions.OnClick;
 import com.dev.baqari.binding.viewBinding.annotation.actions.OnItemClick;
@@ -14,6 +12,12 @@ import com.dev.baqari.binding.viewBinding.annotation.actions.OnLongClick;
 import com.dev.baqari.binding.viewBinding.annotation.actions.OnSeekChange;
 import com.dev.baqari.binding.viewBinding.annotation.actions.OnTextChange;
 import com.dev.baqari.binding.viewBinding.annotation.actions.OnTouch;
+import com.dev.baqari.binding.viewBinding.annotation.component.Receiver;
+import com.dev.baqari.binding.viewBinding.annotation.storage.File;
+import com.dev.baqari.binding.viewBinding.annotation.storage.Preference;
+import com.dev.baqari.binding.viewBinding.apply.ComponentApply;
+import com.dev.baqari.binding.viewBinding.apply.FieldTypeApply;
+import com.dev.baqari.binding.viewBinding.apply.MethodTypeApply;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -25,6 +29,7 @@ public class Binder {
     public static Binder instance(Context context) {
         MethodTypeApply.context = context;
         FieldTypeApply.context = context;
+        ComponentApply.context = context;
         return new Binder();
     }
 
@@ -51,12 +56,13 @@ public class Binder {
         if (!injectManager.isApplied()) {
             MethodTypeApply.context = object;
             FieldTypeApply.context = object;
+            ComponentApply.context = object;
             binding(object);
         }
         return injectManager;
     }
 
-    public void binding(Object object){
+    public void binding(final Object object) {
         View view = null;
         for (final Method method : object.getClass().getMethods()) {
             if (method.isAnnotationPresent(OnClick.class)) {
@@ -83,8 +89,13 @@ public class Binder {
             if (method.isAnnotationPresent(OnLongClick.class)) {
                 view = MethodTypeApply.applyOnLongClick(method, method.getAnnotation(OnLongClick.class), object);
             }
+
             if (view != null)
                 injectManager.inject(view);
+
+            if (method.isAnnotationPresent(Receiver.class)) {
+                ComponentApply.registerReceiver(method, object);
+            }
         }
         for (Field field : object.getClass().getDeclaredFields()) {
             if (field.isAnnotationPresent(Preference.class)) {
