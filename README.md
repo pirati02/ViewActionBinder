@@ -27,6 +27,7 @@ public class AnotherActivity extends AppCompatActivity {
 # actions injected into viewModel
  activity for view model
 > public class MainActivity extends ViewModelActivity<MainViewModel>
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
