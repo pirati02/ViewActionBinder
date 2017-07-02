@@ -19,7 +19,7 @@ public class AnotherActivity extends AppCompatActivity {
         Toast.makeText(this, "Test", Toast.LENGTH_SHORT).show();
     }
     
-    @OnTouch(id - R.id.button)
+    @OnTouch(id = R.id.button)
     public void touched(MotionEvent event){
         Toast.makeText(this, "touched", Toast.LENGTH_SHORT).show();
     }
