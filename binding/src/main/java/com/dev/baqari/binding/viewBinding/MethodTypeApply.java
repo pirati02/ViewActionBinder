@@ -3,7 +3,6 @@ package com.dev.baqari.binding.viewBinding;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MotionEvent;
@@ -31,7 +30,6 @@ class MethodTypeApply {
     @SuppressLint("StaticFieldLeak")
     static Context context;
 
-    @Nullable
     static View applyOnCheckChange(final Method method, OnCheckChange onCheckChange, final Object object) {
         if (onCheckChange.id() > 0) {
             final View view = ((Activity) context).findViewById(onCheckChange.id());
@@ -63,7 +61,6 @@ class MethodTypeApply {
         return null;
     }
 
-    @Nullable
     static View applyOnClick(final Method method, OnClick onClick, final Object object) {
         if (onClick.id() > 0) {
             final View view = ((Activity) context).findViewById(onClick.id());
@@ -90,7 +87,6 @@ class MethodTypeApply {
         return null;
     }
 
-    @Nullable
     static View applyTextChange(final Method method, OnTextChange onTextChange, final Object object) {
         if (onTextChange.id() > 0) {
             final View view = ((Activity) context).findViewById(onTextChange.id());
@@ -130,7 +126,6 @@ class MethodTypeApply {
         return null;
     }
 
-    @Nullable
     static View applySeekChange(final Method method, OnSeekChange onSeekChange, final Object object) {
         if (onSeekChange.id() > 0) {
             final View view = ((Activity) context).findViewById(onSeekChange.id());
@@ -171,7 +166,6 @@ class MethodTypeApply {
         return null;
     }
 
-    @Nullable
     static View applyOnItemClick(final Method method, OnItemClick onItemClick, final Object object) {
         if (onItemClick.id() > 0) {
             final View view = ((Activity) context).findViewById(onItemClick.id());
@@ -203,7 +197,6 @@ class MethodTypeApply {
         return null;
     }
 
-    @Nullable
     static View applyOnItemSelect(final Method method, OnItemSelect onItemSelect, final Object object) {
         if (onItemSelect.id() > 0) {
             final View view = ((Activity) context).findViewById(onItemSelect.id());
@@ -238,7 +231,6 @@ class MethodTypeApply {
         return null;
     }
 
-    @Nullable
     static View applyOnTouch(final Method method, OnTouch onTouch, final Object object) {
         if (onTouch.id() > 0) {
             final View view = ((Activity) context).findViewById(onTouch.id());
@@ -268,7 +260,6 @@ class MethodTypeApply {
         return null;
     }
 
-    @Nullable
     static View applyOnLongClick(final Method method, OnLongClick onLongClick, final Object object) {
         if (onLongClick.id() > 0) {
             final View view = ((Activity) context).findViewById(onLongClick.id());
