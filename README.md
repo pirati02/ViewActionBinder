@@ -1,10 +1,10 @@
 # ViewActionBinder
 
-idea from butterknife but this isnot working with Java CodeGeneration
+Idea from butterknife but this is not working with Java CodeGeneration
 # 1. view actions
 > OnClick, OnTextChange, OnSeekChange, OnItemClick, OnCheckChange, OnItemSelect, OnLongClick, OnTouch
 
-# actions injected into activity
+# Actions injected into activity
 public class AnotherActivity extends AppCompatActivity {
 
     @Override
@@ -24,7 +24,7 @@ public class AnotherActivity extends AppCompatActivity {
         Toast.makeText(this, "touched", Toast.LENGTH_SHORT).show();
     }
 
-# actions injected into viewModel
+# Actions injected into viewModel
  activity for view model
 > public class MainActivity extends ViewModelActivity<MainViewModel>
     
@@ -35,7 +35,7 @@ public class AnotherActivity extends AppCompatActivity {
         viewModel.bind();
     }
 
-and there is view model
+ and there is view model
 > public class MainViewModel extends ActivityViewModel<MainActivity>
 
     public void bind(){
@@ -76,7 +76,7 @@ for example
         Toast.makeText(this, "test", Toast.LENGTH_SHORT).show();
     }
 
-# try to avoid leaks with injectmanager reject!
+# Try to avoid leaks with inject manager reject!
 for example: 
 > public class AnotherActivity extends AppCompatActivity {
 
