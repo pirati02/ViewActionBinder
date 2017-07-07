@@ -1,4 +1,4 @@
-package com.dev.baqari.binding.viewBinding;
+package com.dev.baqari.binding.viewBinding.apply;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -13,11 +13,11 @@ import java.io.FileNotFoundException;
 import java.lang.reflect.Field;
 
 
-class FieldTypeApply {
+public class FieldTypeApply {
     @SuppressLint("StaticFieldLeak")
-    static Context context;
+    public static Context context;
 
-    static void apply(Object object, Field field, Preference preference) {
+    public static void apply(Object object, Field field, Preference preference) {
         String parameter = field.getAnnotation(Preference.class).forName();
         SharedPreferences reference = FieldTypeApply.context.getSharedPreferences(parameter, Context.MODE_PRIVATE);
         try {
@@ -29,7 +29,7 @@ class FieldTypeApply {
         }
     }
 
-    static void apply(Object object, Field field, File preference) {
+    public static void apply(Object object, Field field, File preference) {
         String parameter = field.getAnnotation(File.class).fileName();
         Storage storage = field.getAnnotation(File.class).storage();
         java.io.File reference = null;

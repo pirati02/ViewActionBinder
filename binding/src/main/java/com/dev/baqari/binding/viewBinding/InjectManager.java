@@ -1,13 +1,14 @@
 package com.dev.baqari.binding.viewBinding;
 
-import android.content.Context;
 import android.view.View;
 import android.widget.AbsListView;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.SeekBar;
+
+import com.dev.baqari.binding.viewBinding.apply.ComponentApply;
+import com.dev.baqari.binding.viewBinding.apply.FieldTypeApply;
+import com.dev.baqari.binding.viewBinding.apply.MethodTypeApply;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +49,7 @@ public class InjectManager {
             item.setOnClickListener(null);
             item.setOnTouchListener(null);
         }
+        ComponentApply.unregisterReceiver();
     }
 
     public boolean isApplied(){

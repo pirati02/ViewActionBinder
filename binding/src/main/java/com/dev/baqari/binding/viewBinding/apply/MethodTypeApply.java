@@ -1,4 +1,4 @@
-package com.dev.baqari.binding.viewBinding;
+package com.dev.baqari.binding.viewBinding.apply;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -25,12 +25,12 @@ import com.dev.baqari.binding.viewBinding.annotation.actions.OnTouch;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-class MethodTypeApply {
+public class MethodTypeApply {
 
     @SuppressLint("StaticFieldLeak")
-    static Context context;
+    public static Context context;
 
-    static View applyOnCheckChange(final Method method, OnCheckChange onCheckChange, final Object object) {
+    public static View applyOnCheckChange(final Method method, OnCheckChange onCheckChange, final Object object) {
         if (onCheckChange.id() > 0) {
             final View view = ((Activity) context).findViewById(onCheckChange.id());
             if (view instanceof CompoundButton) {
@@ -61,7 +61,7 @@ class MethodTypeApply {
         return null;
     }
 
-    static View applyOnClick(final Method method, OnClick onClick, final Object object) {
+    public static View applyOnClick(final Method method, OnClick onClick, final Object object) {
         if (onClick.id() > 0) {
             final View view = ((Activity) context).findViewById(onClick.id());
             view.setOnClickListener(new View.OnClickListener() {
@@ -87,7 +87,7 @@ class MethodTypeApply {
         return null;
     }
 
-    static View applyTextChange(final Method method, OnTextChange onTextChange, final Object object) {
+    public static View applyTextChange(final Method method, OnTextChange onTextChange, final Object object) {
         if (onTextChange.id() > 0) {
             final View view = ((Activity) context).findViewById(onTextChange.id());
             if (view instanceof EditText) {
@@ -126,7 +126,7 @@ class MethodTypeApply {
         return null;
     }
 
-    static View applySeekChange(final Method method, OnSeekChange onSeekChange, final Object object) {
+    public static View applySeekChange(final Method method, OnSeekChange onSeekChange, final Object object) {
         if (onSeekChange.id() > 0) {
             final View view = ((Activity) context).findViewById(onSeekChange.id());
             if (view instanceof SeekBar) {
@@ -166,7 +166,7 @@ class MethodTypeApply {
         return null;
     }
 
-    static View applyOnItemClick(final Method method, OnItemClick onItemClick, final Object object) {
+    public static View applyOnItemClick(final Method method, OnItemClick onItemClick, final Object object) {
         if (onItemClick.id() > 0) {
             final View view = ((Activity) context).findViewById(onItemClick.id());
             if (view instanceof AbsListView) {
@@ -197,7 +197,7 @@ class MethodTypeApply {
         return null;
     }
 
-    static View applyOnItemSelect(final Method method, OnItemSelect onItemSelect, final Object object) {
+    public static View applyOnItemSelect(final Method method, OnItemSelect onItemSelect, final Object object) {
         if (onItemSelect.id() > 0) {
             final View view = ((Activity) context).findViewById(onItemSelect.id());
             if (view instanceof AbsListView) {
@@ -231,7 +231,7 @@ class MethodTypeApply {
         return null;
     }
 
-    static View applyOnTouch(final Method method, OnTouch onTouch, final Object object) {
+    public static View applyOnTouch(final Method method, OnTouch onTouch, final Object object) {
         if (onTouch.id() > 0) {
             final View view = ((Activity) context).findViewById(onTouch.id());
             view.setOnTouchListener(new View.OnTouchListener() {
@@ -260,7 +260,7 @@ class MethodTypeApply {
         return null;
     }
 
-    static View applyOnLongClick(final Method method, OnLongClick onLongClick, final Object object) {
+    public static View applyOnLongClick(final Method method, OnLongClick onLongClick, final Object object) {
         if (onLongClick.id() > 0) {
             final View view = ((Activity) context).findViewById(onLongClick.id());
             view.setOnLongClickListener(new View.OnLongClickListener() {

@@ -1,10 +1,10 @@
 # ViewActionBinder
 
-idea from butterknife but this isnot working with Java CodeGeneration
+Idea from butterknife but this is not working with Java CodeGeneration
 # 1. view actions
 > OnClick, OnTextChange, OnSeekChange, OnItemClick, OnCheckChange, OnItemSelect, OnLongClick, OnTouch
 
-# actions injected into activity
+# Actions injected into activity
 public class AnotherActivity extends AppCompatActivity {
 
     @Override
@@ -19,14 +19,15 @@ public class AnotherActivity extends AppCompatActivity {
         Toast.makeText(this, "Test", Toast.LENGTH_SHORT).show();
     }
     
-    @OnTouch(id - R.id.button)
+    @OnTouch(id = R.id.button)
     public void touched(MotionEvent event){
         Toast.makeText(this, "touched", Toast.LENGTH_SHORT).show();
     }
 
-# actions injected into viewModel
+# Actions injected into viewModel
  activity for view model
 > public class MainActivity extends ViewModelActivity<MainViewModel>
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +35,7 @@ public class AnotherActivity extends AppCompatActivity {
         viewModel.bind();
     }
 
-and there is view model
+ and there is view model
 > public class MainViewModel extends ActivityViewModel<MainActivity>
 
     public void bind(){
@@ -65,9 +66,20 @@ public class AnotherActivity extends AppCompatActivity
         setContentView(R.layout.activity_another);
         Binder.instance().bind(this);
     }
-# try to avoid leaks
+
+# 3 inject receiver method
+for example
+> public class AnotherActivity extends AppCompatActivity {
+   
+    @Receiver(actions = {"android.net.wifi.WIFI_STATE_CHANGED","android.net.wifi.STATE_CHANGE"})
+    public void received(Intent data){
+        Toast.makeText(this, "test", Toast.LENGTH_SHORT).show();
+    }
+
+# Try to avoid leaks with inject manager reject!
 for example: 
-public class AnotherActivity extends AppCompatActivity
+> public class AnotherActivity extends AppCompatActivity {
+
     @Preference(forName = "default")
     SharedPreferences preferences;
 
