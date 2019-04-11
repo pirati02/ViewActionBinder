@@ -71,7 +71,8 @@ public class AnotherActivity extends AppCompatActivity
 
 # 3 inject receiver method
 for example
-> public class AnotherActivity extends AppCompatActivity {
+
+    public class AnotherActivity extends AppCompatActivity {
    
     @Receiver(actions = {"android.net.wifi.WIFI_STATE_CHANGED","android.net.wifi.STATE_CHANGE"})
     public void received(Intent data){
