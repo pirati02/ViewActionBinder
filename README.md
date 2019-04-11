@@ -5,7 +5,7 @@ Idea from butterknife but this is not working with Java CodeGeneration
 > OnClick, OnTextChange, OnSeekChange, OnItemClick, OnCheckChange, OnItemSelect, OnLongClick, OnTouch
 
 # Actions injected into activity
-public class AnotherActivity extends AppCompatActivity {
+    public class AnotherActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,8 @@ public class AnotherActivity extends AppCompatActivity {
 
 # Actions injected into viewModel
  activity for view model
-> public class MainActivity extends ViewModelActivity<MainViewModel>
+    
+    public class MainActivity extends ViewModelActivity<MainViewModel>
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +37,8 @@ public class AnotherActivity extends AppCompatActivity {
     }
 
  and there is view model
-> public class MainViewModel extends ActivityViewModel<MainActivity>
+    
+    public class MainViewModel extends ActivityViewModel<MainActivity>
 
     public void bind(){
         Binder.instance(activity).bind(this);
@@ -78,7 +80,8 @@ for example
 
 # Try to avoid leaks with inject manager reject!
 for example: 
-> public class AnotherActivity extends AppCompatActivity {
+
+    public class AnotherActivity extends AppCompatActivity {
 
     @Preference(forName = "default")
     SharedPreferences preferences;
